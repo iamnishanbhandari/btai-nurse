@@ -34,7 +34,7 @@ def load_llm(huggingface_repo_id, HF_TOKEN):
 
 
 def main():
-    st.title("Ask BetterTherapy!")
+    st.title("Ask BetterTherapy Nurse!")
 
     if 'messages' not in st.session_state:
         st.session_state.messages = []
@@ -78,9 +78,9 @@ def main():
             response=qa_chain.invoke({'query':prompt})
 
             result=response["result"]
-            source_documents=response["source_documents"]
-            result_to_show=result+"\nSource Docs:\n"+str(source_documents)
-            #response="Hi, I am BetterTherapy Nurse!"
+            # source_documents=response["source_documents"]
+            result_to_show=result
+            response="Hi, I am BetterTherapy Nurse!"
             st.chat_message('assistant').markdown(result_to_show)
             st.session_state.messages.append({'role':'assistant', 'content': result_to_show})
 

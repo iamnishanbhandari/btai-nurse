@@ -74,9 +74,7 @@ def main():
                 return_source_documents=True,
                 chain_type_kwargs={'prompt':set_custom_prompt(CUSTOM_PROMPT_TEMPLATE)}
             )
-
             response=qa_chain.invoke({'query':prompt})
-
             result=response["result"]
             # source_documents=response["source_documents"]
             result_to_show=result
